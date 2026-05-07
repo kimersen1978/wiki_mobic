@@ -1,0 +1,362 @@
+<!--
+title: УТ 10.3 Анкетирование номенклатуры
+description: 
+published: true
+date: 2025-06-17T06:05:42.863Z
+tags: 
+editor: ckeditor
+dateCreated: 2023-09-08T07:21:14.669Z
+-->
+
+<p>В Моби-С, начиная с версии 5.5 появилась возможность создавать анкеты с привязкой к номенклатуре. Для того, что бы эта функция заработало необходима доработка конфигурации 1С. В данной статье описана процедура изменения конфигурации УТ10.3, УТП, УПП… для включения возможности проводить анкетирование в разрезе товаров.</p>
+<blockquote>
+  <p><mark class="pen-red">Важно!</mark> <strong>Настоятельно</strong> рекомендуем сделать<strong> резервную копию базы данных</strong> и основного каталога Моби-С.</p>
+</blockquote>
+<p>1) Открываем базу 1С в конфигураторе.</p>
+<p>2) Если конфигурация закрыта открываем ее, меню <strong>Конфигурация ⇒ Открыть конфигурацию</strong>.</p>
+<p>3) &nbsp;Проверяем/разрешаем возможность изменения конфигурации. <a href="/voprosy-i-otvety/vklyuchit-izmenenie-konfiguracii-1s">Как в 1С 8 включить возможность изменения конфигурации</a></p>
+<h2><strong>Доработка документа Опрос</strong></h2>
+<p>1) Находим в конфигурации документ <strong>Опрос</strong>.</p>
+<figure class="image"><img src="/dlya-razrabotchikov0/ot-21.png"></figure>
+<p>2) В табличную часть <strong>Вопросы</strong> добавляем два дополнительных реквизита табличной части (клик правой кнопкой на <strong>Вопросы ⇒ Добавить ⇒ Реквизит табличной части</strong>)</p>
+<p>Реквизит <strong>Номенклатура</strong>, значения в диалоге <strong>Свойства</strong></p>
+<figure class="image"><img src="/dlya-razrabotchikov0/ot-22.png"></figure>
+<p>&nbsp;</p>
+<figure class="table" style="width:100%;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <tbody>
+      <tr>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:50%;"><strong>Параметр</strong></td>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:50%;"><strong>Значение</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Имя</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Номенклатура</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Синоним</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Номенклатура</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Тип</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">СправочникСсылка.Номенклатура</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Индексировать</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Не индексировать</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Полнотекстовый поиск</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Использовать</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Проверка заполнения</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Не проверять</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Выбор групп и элементов</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Элементы</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>Реквизит <strong>ХарактеристикаНоменклатуры</strong>, значения в диалоге <strong>Свойства</strong></p>
+<figure class="image"><img src="/dlya-razrabotchikov0/ot-23.png"></figure>
+<p>&nbsp;</p>
+<figure class="table" style="width:100%;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <tbody>
+      <tr>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:50%;"><strong>Параметр</strong></td>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:50%;"><strong>Значение</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Имя</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">ХарактеристикаНоменклатуры</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Синоним</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Характеристика номенклатуры</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Тип</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">СправочникСсылка.ХарактеристикиНоменклатуры</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Индексировать</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Не индексировать</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Полнотекстовый поиск</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Использовать</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Проверка заполнения</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Не проверять</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Выбор групп и элементов</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Элементы</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>3) Редактируем форму <strong>ФормаДокумента</strong>, добавляем две дополнительные колонки для табличной части. Открываем форму <strong>ФормаДокумента</strong> и переходим на вкладку <strong>Диалог</strong> внизу формы.</p>
+<p>Нажимаем правую кнопку мыши, на табличной части, в центре формы и выбираем в меню пункт <strong>Добавить колонку</strong>.</p>
+<figure class="image"><img src="/dlya-razrabotchikov0/ot-24.png"></figure>
+<p>Колонка <strong>Номенклатура</strong>, значения в диалоге <strong>Свойства</strong></p>
+<figure class="table">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <tbody>
+      <tr>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Параметр</strong></td>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Значение</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Имя</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Номенклатура</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Данные</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">из выпадающего списка выбираем <strong>Номенклатура</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Элемент управления</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">из выпадающего списка выбираем <strong>Поле ввода</strong></td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">ТекстШапки</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Номенклатура</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>Колонка Характеристика Номенклатуры, значения в диалоге Свойства</p>
+<figure class="table">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <tbody>
+      <tr>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Параметр</strong></td>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Значение</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Имя</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">ХарактеристикаНоменклатуры</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Данные</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">из выпадающего списка выбираем <strong>ХарактеристикаНоменклатуры</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Элемент управления</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">из выпадающего списка выбираем <strong>Поле ввода</strong></td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">ТекстШапки</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Характеристика</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>4) Редактируем модуль объекта. Нажимаем правой кнопкой мыши на строке<strong> Документы &gt; Опрос</strong> и выбираем пункт <strong>Открыть модуль объекта</strong>. В открывшийся модуль, в конец текст с новой строки необходимо добавить следующую процедуру.</p>
+<p>Процедура&nbsp;ОбработкаПроведения(Отказ,&nbsp;РежимПроведения)<br>&nbsp;Записи=Движения.РезультатыАнкетирования;<br>&nbsp;Записи.Отбор.Регистратор.Установить(Ссылка);<br>&nbsp;Для&nbsp;Каждого&nbsp;Стр&nbsp;Из&nbsp;Вопросы&nbsp;Цикл<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Запись=Записи.Добавить();<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Запись.Регистратор=Ссылка;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Запись.Период=Дата;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Запись.ОпрашиваемоеЛицо=ОпрашиваемоеЛицо;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Запись.Номенклатура=Стр.Номенклатура;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Запись.ХарактеристикаНоменклатуры=Стр.ХарактеристикаНоменклатуры;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Запись.Вопрос=Стр.Вопрос;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Запись.Ответ=Стр.ТиповойОтвет;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Запись.Активность=Истина;<br>&nbsp;КонецЦикла;<br>&nbsp;Записи.Записать(Истина);<br>КонецПроцедуры</p>
+<h2><strong>Добавление регистра сведений</strong></h2>
+<p>1) Находим в конфигурации объект <strong>РегистрыСведений</strong>. Нажимаем правой кнопкой мыши на <strong>РегистрыСведений</strong> и выбираем пункт <strong>Добавить</strong>.</p>
+<p>2) Вкладка <strong>Основные</strong></p>
+<figure class="table">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <tbody>
+      <tr>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Параметр</strong></td>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Значение</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Имя</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">РезультатыАнкетирования</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Синоним</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Результаты анкетирования</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Периодичность</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>По позиции регистратора</strong>, если данного значения нет в списке то использовать значение <strong>В пределах секунды</strong></td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Режим записи</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Подчинение регистратору</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>3) Вкладка <strong>Данные</strong>, параметр <strong>Измерения</strong>, добавляем 4 новых измерения и 1 ресурс. Нажимаем правой кнопкой мыши на <strong>Измерения</strong> и выбираем пункт <strong>Добавить</strong>.</p>
+<p>Измерение <strong>ОпрашиваемоеЛицо</strong></p>
+<figure class="table" style="width:1311px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <tbody>
+      <tr>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Параметр</strong></td>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Значение</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Имя</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">ОпрашиваемоеЛицо</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Синоним</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Опрашиваемое лицо</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Тип</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Справа от параметра нажимаем кнопку […], в открывшемся диалоге выбираем галку <strong>Составной тип данных</strong> и отмечаем следующие элементы: <strong>СправочникСсылка.КонтактныеЛица</strong>, <strong>СправочникСсылка.Контрагенты</strong>, <strong>СправочникСсылка.ФизическиеЛица</strong></td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Проверка заполнения</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Выдавать ошибку</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<figure class="image"><img src="/dlya-razrabotchikov0/ot-25.png"></figure>
+<p>Измерение <strong>Номенклатура</strong></p>
+<figure class="table" style="width:1311px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <tbody>
+      <tr>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Параметр</strong></td>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Значение</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Имя</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Номенклатура</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Синоним</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Номенклатура</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Тип</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Выбираем элемент <strong>СправочникСсылка.Номенклатура</strong></td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Проверка заполнения</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Не проверять</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>Измерение<strong> ХарактеристикаНоменклатуры</strong></p>
+<figure class="table" style="width:1311px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <tbody>
+      <tr>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Параметр</strong></td>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Значение</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Имя</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">ХарактеристикаНоменклатуры</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Синоним</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Характеристика номенклатуры</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Тип</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Галка <strong>Составной тип данных</strong> и отмечаем элемент: <strong>СправочникСсылка.ХарактеристикиНоменклатуры</strong></td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Проверка заполнения</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Не проверять</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>Измерение <strong>Вопрос</strong></p>
+<figure class="table" style="width:1311px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <tbody>
+      <tr>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Параметр</strong></td>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Значение</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Имя</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Вопрос</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Синоним</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Вопрос</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Тип</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Выбираем элемент <strong>ПланВидовХарактеристикСсылка.ВопросыДляАнкетирования</strong></td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Проверка заполнения</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Выдавать ошибку</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>Ресурс Ответ</p>
+<figure class="table" style="width:1311px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <tbody>
+      <tr>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Параметр</strong></td>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Значение</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Имя</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Ответ</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Синоним</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Ответ</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Тип</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Выбираем элемент <strong>Характеристика.ВопросыДляАнкетирования</strong></td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Проверка заполнения</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Выдавать ошибку</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>4) Вкладка <strong>Регистраторы,</strong> необходимо установить пометку напротив строки <strong>Опрос</strong>.</p>
+<p>5) В окне <strong>Регистр сведений РезультатыАнкетирования</strong> нажимаем кнопку <strong>Закрыть</strong>.</p>
+<p>6) Находим в конфигурации документ <strong>Опрос</strong>. Нажимаем правой кнопкой мыши на строке <strong>Опрос</strong> и выбираем пункт <strong>Свойства</strong>.</p>
+<p>Устанавливаем следующие значения:</p>
+<figure class="table" style="width:1311px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <tbody>
+      <tr>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Параметр</strong></td>
+        <td style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;"><strong>Значение</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Проведение</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Разрешить</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Оперативное проведение</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Запретить</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Движения</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Открываем диалог и устанавливаем флажок у значения <strong>РегистрыСведений &gt; &nbsp;РезультатыАнкетирования</strong>, после установки в поле должен появиться текст <strong>РегистрСведений.РезультатыАнкетирования</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>7) Сохраняем конфигурацию, меню <strong>Файл &gt; Сохранить</strong>. Подтверждаем изменения, меню <strong>Конфигурация &gt; Обновить конфигурацию базы данных</strong>. В появившемся окне <strong>Реорганизация информации</strong> должны быть следующие строки</p>
+<ul>
+  <li>Новый объект: РегистрСведений.РезультатыАнкетирования</li>
+  <li>Объект изменен: Документ.Опрос</li>
+  <li>Регистрация конфигурации изменена</li>
+</ul>
+<figure class="image"><img src="/dlya-razrabotchikov0/ot-26.png"></figure>
+<p>Нажимаем кнопку <strong>Принять</strong>.</p>

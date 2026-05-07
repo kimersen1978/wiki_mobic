@@ -1,0 +1,60 @@
+<!--
+title: Облачный сервер Моби-С
+description: 
+published: true
+date: 2025-07-04T12:54:00.914Z
+tags: 
+editor: ckeditor
+dateCreated: 2023-09-06T08:51:08.301Z
+-->
+
+<p>Сервер <a href="https://mobi-c.ru/oblachnyj-server.html"><u>Mobi-С.Net</u></a> - предназначен только для маршрутизации запросов от мобильного устройства в серверную часть Моби-С. Данные ни где не хранятся и при передаче шифруются вашим паролем. У нас нет доступа к вашим данным</p>
+<p>Для того чтобы использовать <strong>Mobi-С.Net:</strong></p>
+<ol>
+  <li>Установите флажок <strong>"Принимать соединения от мобильных устройств через облачный сервер Моби-С"</strong>.</li>
+  <li>Получите <a href="https://wiki.mobi-c.ru/ustanovka-mobi-s/nastrojka-obmena/server-mobi-s-net">в личном кабинете на нашем сайте код базы</a>.</li>
+  <li>Введите полученный код базы в поле <strong>Код базы</strong>.</li>
+  <li>Придумайте и введите пароль в поле <strong>Пароль</strong>. С помощью пароля шифруются передаваемые через Mobi-С.Net данные. Если вы измените пароль в модуле интеграции, то необходимо изменить пароль и на всех мобильных устройствах, работающих через облачный сервер Mobi-С.Net. Если этого не сделать, то мобильные устройства не смогут обмениваться данными.</li>
+  <li>Сохраните настройки и перезапустите модуль интеграции Моби-С.</li>
+  <li>Проверьте <strong>статус работы</strong> облачного сервера на вкладке <strong>Сервер обмена</strong> модуля интеграции Моби-С.</li>
+</ol>
+<figure class="image"><img src="/ut11/ut11-19.png"></figure>
+<h2><strong>Статус работы Mobi-С.Net</strong></h2>
+<p>Текущее состояние работы облачного сервера отображается на главном экране модуля интеграции Моби-С.</p>
+<figure class="table">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(224, 224, 224);border-left:1px solid rgb(224, 224, 224);border-right:1px solid rgb(224, 224, 224);border-top:1px solid rgb(224, 224, 224);">
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px solid rgb(207, 216, 220);border-left:1px solid rgb(207, 216, 220);border-right:1px solid rgb(207, 216, 220);border-top:1px solid rgb(207, 216, 220);padding:0.5rem 0.75rem;">
+          <figure class="image"><img src="https://wiki.mobi-c.ru/ut10/hmfile_hash_b67e9c4d.png"></figure>
+        </td>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid rgb(207, 216, 220);border-left:1px solid rgb(207, 216, 220);border-right:1px solid rgb(207, 216, 220);border-top:1px solid rgb(207, 216, 220);padding:0.5rem 0.75rem;">Сервер Mobi-С.Net работает в штатном режиме.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid rgb(207, 216, 220);border-left:1px solid rgb(207, 216, 220);border-right:1px solid rgb(207, 216, 220);border-top:1px solid rgb(207, 216, 220);padding:0.5rem 0.75rem;">
+          <figure class="image"><img src="https://wiki.mobi-c.ru/ut10/hmfile_hash_86279ac3.png"></figure>
+        </td>
+        <td style="background-color:rgb(245, 245, 245);border-bottom:1px solid rgb(207, 216, 220);border-left:1px solid rgb(207, 216, 220);border-right:1px solid rgb(207, 216, 220);border-top:1px solid rgb(207, 216, 220);padding:0.5rem 0.75rem;">
+          <p>Сервер Mobi-С.Net не используется.</p>
+          <p>Снята галка "Принимать соединения от мобильных устройств через облачный сервер Моби-С" или нет интернета.</p>
+        </td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(207, 216, 220);border-left:1px solid rgb(207, 216, 220);border-right:1px solid rgb(207, 216, 220);border-top:1px solid rgb(207, 216, 220);padding:0.5rem 0.75rem;">
+          <figure class="image"><img src="https://wiki.mobi-c.ru/ut10/hmfile_hash_2151ec7c.png"></figure>
+        </td>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid rgb(207, 216, 220);border-left:1px solid rgb(207, 216, 220);border-right:1px solid rgb(207, 216, 220);border-top:1px solid rgb(207, 216, 220);padding:0.5rem 0.75rem;">
+          <p>Проблемы с работой сервера Mobi-С.Net</p>
+          <ul>
+            <li>Не работает сервер Mobi-С.Net</li>
+            <li>Не правильный или заблокированный код базы</li>
+          </ul>
+          <p>Для работы Mobi-С.Net нужно открыть все порты с адресов sky.mobi-c.net sky1.mobi-c.ru sky2.mobi-c.ru, и исходящий порт 1233 и 80 до указанных сайтов.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>Справа от статуса выводиться подробная текстовая информация о текущем статусе сервера.</p>
+<p>Для настройки на мобильном устройстве, перейдите на КПК в <strong>Настройки ⇒ Базы данных ⇒ Ваша база данных</strong>. В разделе <strong>Серверы</strong> выберите пункт <strong>Соединение через сервер Моби-С</strong>. Введите код базы и пароль, поставьте галку <strong>Соединятся через сервер Моби-С</strong>. В Моби-С выполните запрос <a href="https://wiki.mobi-c.ru/mobilnyj-klient-na-android/obmen-dannymi/polnaya-zagruzka"><strong>Полная загрузка</strong></a>.</p>
+<p>Если в обработке отсутствует подключение к Mobi-С.Net или обработка закрыта, то при выполнении любого запрос на КПК, агент получит ошибку <strong>ERROR_NO_ACC_SYSTEM</strong>.</p>

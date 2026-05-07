@@ -1,0 +1,66 @@
+<!--
+title: GPS
+description: 
+published: true
+date: 2023-11-21T13:15:19.038Z
+tags: 
+editor: ckeditor
+dateCreated: 2023-09-08T07:09:22.343Z
+-->
+
+<h1>GPS - запрос на выгрузку данных GPS трека</h1>
+<pre><code class="language-plaintext">&lt;ВерсияПротоколаОбмена&gt;\r\n
+&lt;Платформа&gt;\r\n
+&lt;КодАгента&gt;\r\n
+GPS\r\n
+[&lt;ДатаВремя&gt;\t&lt;Долгота&gt;\t&lt;Широта&gt;\t&lt;Точность&gt;\t&lt;Скорость&gt;\t&lt;Индекс&gt;\t&lt;ТипКоординаты&gt;\r\n]
+Ответ:
+OK
+\r\n</code></pre>
+<p>&nbsp;</p>
+<figure class="table" style="width:1328px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <thead>
+      <tr>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:16px;padding:0px;vertical-align:top;width:171px;">Параметр</th>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:16px;padding:0px;vertical-align:top;width:426px;">Назначение</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:171px;">ДатаВремя</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:426px;">Дата и время снятия координаты в универсальном времени(UTC).<br>Требует дополнительной конвертации в локальное время.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:171px;">Долгота</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:426px;">Долгота в формате градусы с десятичными долями.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:171px;">Широта</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:426px;">Широта в формате градусы с десятичными долями.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:171px;">Точность</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:426px;">Точность GPS координаты.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:171px;">Скорость</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:426px;">Скорость движения (километры в час).</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:171px;">Индекс</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:426px;">Уникальный идентификатор строки.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:171px;">ТипКоординаты</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:426px;">0 — Fake, 1 — GPS, 2 — внешний приёмник GPS, 3 — Network (Wi-Fi), 4 — неизвестный провайдер</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>&nbsp;</p>
+<p>GPS трек выгружается из КПК в 1С двумя способами</p>
+<ol>
+  <li>Автоматически каждые 15 минут.</li>
+  <li>При выполнении запрос <a href="/mobilnyj-klient-na-android/obmen-dannymi/vygruzka-dokumentov">Выгрузить документы</a>.</li>
+</ol>

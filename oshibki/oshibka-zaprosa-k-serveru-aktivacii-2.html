@@ -1,0 +1,57 @@
+<!--
+title: Ошибка запроса к серверу активации 2
+description: 
+published: true
+date: 2025-06-16T07:07:56.254Z
+tags: 
+editor: ckeditor
+dateCreated: 2023-09-07T13:05:57.073Z
+-->
+
+<p><a href="/oshibki/oshibka-zaprosa-k-serveru-aktivacii-1">Ошибка запроса к серверу активации 1</a></p>
+<h2><strong>Исходная ситуация</strong></h2>
+<p>При нажатии на кнопку <strong>Применить</strong> в диалоге <a href="/integraciya-s-1s-8-ut-10/servis/klyuchi-kpk"><strong>Ключи КПК</strong></a> возникает ошибка</p>
+<p>●Ошибка запроса к серверу активации 0xНОМЕРОШИБКИ</p>
+<p>●Ошибка подключения к серверу активации 'SSL connect error'</p>
+<p>Старые операционные системы Windows XP, Windows 2003, Windows 7 SP1 не могут расшифровать сертификат шифрования на котором работает Моби-С так как не поддерживают современные алгоритмы шифрования.</p>
+<p>&nbsp;</p>
+<h2><strong>Решение</strong></h2>
+<p><strong>Вариант 1</strong></p>
+<p>Обновление операционной системы. Все проблемные ОС сняты с поддержки и нормальная работа в них не возможна.</p>
+<p><strong>Вариант 2</strong></p>
+<p>Активируйте лицензии <strong>на другом компьютере,</strong> с актуальной операционной системой, где работает кнопка <strong>Применить. </strong>Информация по активированным лицензиям храниться в файле <strong>lickeys.txt</strong> или <strong>lickeys_utf8.txt</strong>.</p>
+<p>1.Запустить Моби-С на любом компьютере, где работает кнопка <strong>Применить</strong>.</p>
+<p>2.Если <a href="/voprosy-i-otvety/osnovnoj-katalog-mobi-s">основной каталог Моби-С</a> <strong>сетевой,</strong> то достаточно активировать новое устройство на этом компьютере.</p>
+<p>3.Если основной каталог Моби-С <strong>не сетевой</strong>, сделать <strong>сетевым</strong> и повторите пункты 2 и 3.</p>
+<p>4.Если дата создания файла blacklist.bin больше 2 недель от текущей, то необходимо скачать файл по ссылке <a href="https://mobi-c.ru/components/com_licensing/blacklist2.bin"><u>https://mobi-c.ru/components/com_licensing/blacklist2.bin</u></a></p>
+<p>переименовать в blacklist.bin и положить в каталог Моби-с.</p>
+<p>&nbsp;</p>
+<h2><strong>Версия Моби-С 5.5</strong></h2>
+<p>Специально для таких систем мы создали библиотеку <strong>PocketServer55.dll</strong> в которую интегрированы инструменты для работы с сертификатами.</p>
+<p><a href="https://mobi-c.ru/arc/SSL_error.zip"><u>Скачать библиотеку</u></a></p>
+<blockquote>
+  <p>Важно! Библиотека предназначена только для <strong>x86</strong> версии клиента 1С.</p>
+</blockquote>
+<p>В скачиваемый архив входят файлы:</p>
+<ul>
+  <li><strong>PocketServer55.dll</strong> - библиотека.</li>
+  <li><strong>Интеграция Моби-С с 1С 8 (5.4).epf</strong> - обработка для Моби-С версии 5.4 с внесенными доработками для конфигураций на базе Управление Торговлей 10.3. Для платформы 8.2 потребуется конвертация обработки.</li>
+  <li><strong>ПрочтиМеня.txt </strong>- программный код изменений для обработки.</li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>Что нужно сделать для замены библиотеки:</strong></p>
+<ol>
+  <li>Поместить файл<strong> PocketServer55.dll</strong> в каталог <strong>bin</strong> в папке установленной платформы 1С на которой работает ваша конфигурация.<br>Пример: Для платформы 1С:Предприятие 8.2 (8.2.19.130) файл нужно переместить в каталог<strong> c:\Program Files (x86)\1cv82\8.2.19.130\bin\</strong></li>
+  <li><a href="https://mobi-c.kz/wiki/doku.php/sovety/registracija_biblioteki_pocketserver_iz_komandnoj_stroki"><u>Зарегистрировать из командной строки</u></a> библиотеку <strong>PocketServer55.dll.</strong></li>
+  <li>Перезапустить 1С и обработку. Проверить обмен с кпк агента.</li>
+</ol>
+<p>&nbsp;</p>
+<h2><strong>Версия Моби-С 5.4</strong></h2>
+<p>Важно! Перед любыми операциями обновления настоятельно рекомендуем сделать<strong> резервную копию базы данных</strong> и <a href="https://mobi-c.ru/help/mobi_filedescr.htm">основного каталога Моби-С</a>.</p>
+<p>1.Доработать обработку Моби-С</p>
+<p>a.Изменилось имя серверной компоненты и сервера. Заменить везде<i><strong> PocketServer54.dll, AddIn.PocketServer54, AddIn.Server54</strong></i> на <i><strong>PocketServer55.dll, AddIn.PocketServer55, AddIn.Server55</strong></i>.</p>
+<p>b.Необходимо перевести файл ключей <strong>lickeys.txt</strong> на <strong>UTF-8</strong> формат. Новый файл <strong>lickeys_utf8.txt.</strong></p>
+<p>2.Поместить файл<strong> PocketServer55.dll</strong> в каталог <strong>bin</strong> в папке установленной платформы 1С на которой работает ваша конфигурация.<br>Пример: Для платформы 1С:Предприятие 8.2 (8.2.19.130) файл нужно переместить в каталог<strong> c:\Program Files (x86)\1cv82\8.2.19.130\bin\</strong></p>
+<p>3.<a href="https://mobi-c.kz/wiki/doku.php/sovety/registracija_biblioteki_pocketserver_iz_komandnoj_stroki"><u>Зарегистрировать из командной строки</u></a> библиотеку <strong>PocketServer55.dll.</strong></p>
+<p>4.Перезапустить 1С и обработку. Проверить обмен с кпк агента.</p>
+<p><a href="https://mobi-c.ru/help/error_serveractivation.htm">Доработка обработки для УТ 10.3 и &nbsp;для ТиС 9.2 (1С 7.7)</a></p>

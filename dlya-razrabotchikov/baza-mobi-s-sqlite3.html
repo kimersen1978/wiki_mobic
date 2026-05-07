@@ -1,0 +1,45 @@
+<!--
+title: База mobi_s.sqlite3
+description: 
+published: true
+date: 2023-11-14T10:03:43.691Z
+tags: 
+editor: ckeditor
+dateCreated: 2023-11-14T09:54:36.969Z
+-->
+
+<p>В <a href="/voprosy-i-otvety/osnovnoj-katalog-mobi-s">Основном каталоге</a> Моби-С находиться файл <strong>mobi_s.sqlite3</strong>. Фай <strong>mobi_s.sqlite3</strong> является вспомогательной базой данных в которой хранятся данные нужные для работы функций Моби-С. Формат базы SQLite. Посмотреть содержимое&nbsp;<strong> mobi_s.sqlite3</strong> можно программой <a href="https://sqlitebrowser.org/">DB Browser for SQLite</a>.</p>
+<p>Таблица <strong>OSTATKI</strong> - &nbsp;функция <a href="/integraciya-s-1s-8-ut-10/merchendajzing/ostatki-tovarov-v-torgovyh-tochkah">Остатки товаров в торговых точках</a>.</p>
+<p>Таблица <strong>messages </strong>- функция <a href="/integraciya-s-1s-8-ut-10/agenty/soobshcheniya">Сообщения</a>.</p>
+<p>Таблица <strong>Log </strong>- функция <a href="/integraciya-s-1s-8-ut-10/agenty/log-dejstvij-agentov">Лог действий агентов</a>.&nbsp;</p>
+<p>Таблица <strong>PhotoMetadata</strong> - журнал <a href="/integraciya-s-1s-8-ut-10/merchendajzing/fotografii">Фотографии</a>, информацию из метаданных файлов фотографий. Данные попадают в таблицу после формирования списка фотографий в журнале <strong>Фотографии</strong>.</p>
+<p>Таблица <strong>IncomingPhotos</strong> - журнал <a href="/integraciya-s-1s-8-ut-10/merchendajzing/fotografii">Фотографии</a>,&nbsp; информацию по привязке файла фотографии к объекту сьемки. Данные попадают в таблицу при выполнении запроса на загрузку фотографий из КПК в 1С.</p>
+<p>&nbsp;</p>
+<h2>Ошибка disk image is malformed</h2>
+<p>При открытии обработки или в процессе работы в логе появляются сообщения: <strong>database disk image is malformed.</strong> Поврежден файл базы данных <strong>mobi_s.sqlite3. </strong>Причиной ошибок в базе данных sqlite может служить повреждение данных в файле (физические/логические повреждения жесткого диска, последствия вирусов, ошибки при копировании файла).</p>
+<p>&nbsp;</p>
+<h3>Вариант 1. Удаление поврежденной баз</h3>
+<p>Если в базе <strong>mobi_s.sqlite3</strong> для вас нет ничего ценного то её можно просто удалить.</p>
+<ol>
+  <li>Закрыть все обработки Моби-С и саму базу 1С.</li>
+  <li>Перейти в <a href="/voprosy-i-otvety/osnovnoj-katalog-mobi-s">Основной каталог</a> Моби-С и удалить файл <strong>mobi_s.sqlite3.</strong></li>
+  <li>Запустить обработку Моби-С. Будет создан новый чистый файл файл <strong>mobi_s.sqlite3.</strong><br>&nbsp;</li>
+</ol>
+<h3><strong>Вариант 2. Восстановление поврежденной базы</strong></h3>
+<p>Восстановление поврежденной базы данных производится с помощью утилиты командной строки sqlite.</p>
+<p><a href="http://www.sqlite.org/download.html"><u>http://www.sqlite.org/download.html</u></a>, необходимо скачать «sqlite-tools-win32-x86...zip», в описании которой указано <strong>including the command-line shell</strong>, на текущий момент актуальная ссылка</p>
+<p><a href="https://www.sqlite.org/2022/sqlite-tools-win32-x86-3370200.zip"><u>https://www.sqlite.org/2022/sqlite-tools-win32-x86-3370200.zip</u></a><br>&nbsp;</p>
+<h4>Процедура восстановления</h4>
+<ol>
+  <li>Закройте все работающие обработки Моби-С.</li>
+  <li>Сделайте резервную копию файла <strong>mobi_s.sqlite3</strong>.</li>
+  <li>Скопируйте испорченный файл <strong>mobi_s.sqlite3</strong> в отдельный каталог, например <strong>C:\1</strong>, далее все операции выполняются в этом каталоге если не указано иное.</li>
+  <li>В этот каталог необходимо распаковать файл <strong>sqlite3.exe</strong> из архива <strong>sqlite-tools-win32-x86-...zip</strong>.</li>
+  <li>В этот каталог скачайте 2 файла <a href="https://mobi-c.ru/arc/%D0%98%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%D0%94%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%D0%98%D0%B7%D0%91%D0%B0%D0%B7%D1%8B.bat"><u>ИзвлечьДанныеИзБазы.bat</u></a> и <a href="https://mobi-c.ru/arc/%D0%9F%D0%BE%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D1%82%D1%8C%D0%94%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%D0%92%D0%91%D0%B0%D0%B7%D1%83.bat"><u>ПоместитьДанныеВБазу.bat</u></a>.</li>
+  <li>Выполните файл <strong>ИзвлечьДанныеИзБазы.bat</strong>, выполнение может занять продолжительное время, в результате будет сформирован файл <strong>mobi_s.sql</strong>.</li>
+  <li>Текстовым редактором (желательно использовать Notepad++ или AkelPad, нежелательно – Блокнот) откройте файл <strong>mobi_s.sql</strong>.</li>
+  <li>Если последняя строка в файле <strong>mobi_s.sql</strong> начинается с <strong>ROLLBACK</strong>, то замените всю строку на <strong>COMMIT</strong>; и сохраните файл.</li>
+  <li>В этом каталоге переименуйте файл <strong>mobi_s.sqlite3</strong> в <strong>mobi_s_исходный.sqlite3</strong>.</li>
+  <li>Запустите файл <strong>ПоместитьДанныеВБазу. bat</strong>, выполнение может занять продолжительное время, могут выводится сообщения об ошибках, игнорируйте их, в результате будет сформирован файл <strong>mobi_s.sqlite3</strong>.</li>
+  <li>Скопируйте полученный файл <strong>mobi_s.sqlite3</strong> в <a href="https://mobi-c.ru/help/mobi_filedescr.htm">основной каталог Моби-С</a> с заменой существующего и проверьте работу с внешней базой из одной обработки – сообщения, фотографии, остатки в торговых точках. Если ошибок работы с внешней базой данных нет, запускайте остальные обработки.</li>
+</ol>

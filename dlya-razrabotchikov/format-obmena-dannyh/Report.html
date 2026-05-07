@@ -1,0 +1,89 @@
+<!--
+title: Report
+description: 
+published: true
+date: 2023-11-21T13:22:08.130Z
+tags: 
+editor: ckeditor
+dateCreated: 2023-09-08T07:08:20.167Z
+-->
+
+<h1><strong>Report – запрос отчёта</strong></h1>
+<pre><code class="language-plaintext">&lt;ВерсияПротоколаОбмена&gt;\r\n
+&lt;Платформа&gt;\r\n
+&lt;КодАгента&gt;\r\n
+Report\r\n
+&lt;КодОтчета&gt;\r\n
+[&lt;КодКлиента&gt;\t&lt;КодДоговора&gt;\t&lt;КодыНоменклатуры&gt;\t&lt;НачальнаяДата&gt;\t&lt;КонечнаяДата&gt;\t&lt;КодСклада&gt;\r\n\r\n]
+Ответ:
+OK\r\n
+[&lt;КодКлиента&gt;\t&lt;КодДоговора&gt;\t&lt;Кодировка&gt;\t&lt;КодСклада&gt;\r\n&lt;HTMLДокумент&gt;\r\n]
+\r\n</code></pre>
+<p>В КПК запрос Report можно вызвать в журнале клиентов. Можно запросить выгрузку отчетов для нескольких клиентов.</p>
+<figure class="table" style="width:1328px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <thead>
+      <tr>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:16px;padding:0px;vertical-align:top;width:156px;">Параметр</th>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:16px;padding:0px;vertical-align:top;width:706px;">Назначение</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:156px;">КодОтчета</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:706px;">Код отчета, определяется в учетной системе в подзапросе Service запроса <a href="/dlya-razrabotchikov/format-obmena-dannyh/FullLoad"><strong>FullLoad</strong></a></td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:156px;">КодКлиента</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:706px;">Код клиента. Отчет можно сформировать только по одному клиенту.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:156px;">КодДоговора</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:706px;">Код договора</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:156px;">КодыНоменклатуры</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:706px;">Список кодов номенклатуры. Отчет можно сформировать по нескольким товарам. Разделитель кодов товаров RS (Таблица ASCII код 30).</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:156px;">НачальнаяДата</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:706px;">Начальная дата периода отчета.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:156px;">КонечнаяДата</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:706px;">Конечная дата периода отчета.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:15px;padding:0px;vertical-align:top;width:156px;">КодСклада</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:15px;padding:0px;vertical-align:top;width:706px;">Код склада для отбора</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:14px;padding:0px;vertical-align:top;width:706px;" colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:14px;padding:0px;vertical-align:top;width:156px;">КодКлиента</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:14px;padding:0px;vertical-align:top;width:706px;">Код клиента из шапки запроса.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:14px;padding:0px;vertical-align:top;width:156px;">КодДоговора</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:14px;padding:0px;vertical-align:top;width:706px;">Код договора из шапки запроса.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:14px;padding:0px;vertical-align:top;width:156px;">Кодировка</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:14px;padding:0px;vertical-align:top;width:706px;">Кодировка выгружаемого документа. UTF8 или Windows-1251</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:156px;">HTMLДокумент</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:706px;">Строки отчета.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:156px;">КодСклада</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:706px;">Код склада для отбора</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>Отчёты устроены очень просто. По заданному КодОтчета на встроенном языке формируется форма отчёта на HTML и отправляется как последовательность строк в КПК. КПК его только отображает с помощью браузера, включённого в состав операционной системы КПК. Если нужно вставлять изображения или другие двоичные объекты, они должны быть предварительно вручную перенесены на КПК, а в тексте запроса нужно указать ссылки на них в КПК.</p>
+<blockquote>
+  <p>Используется в функции <a href="/integraciya-s-1s-8-ut-10/agenty/nastrojki-agenta/otchety">Отчеты</a></p>
+</blockquote>

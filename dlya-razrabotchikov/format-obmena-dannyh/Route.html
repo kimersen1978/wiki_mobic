@@ -1,0 +1,87 @@
+<!--
+title: Route
+description: 
+published: true
+date: 2023-10-30T09:16:48.655Z
+tags: 
+editor: ckeditor
+dateCreated: 2023-09-08T07:11:50.713Z
+-->
+
+<h1><strong>Route – запрос на расчет и выгрузку маршрута движения между двумя клиентами</strong></h1>
+<blockquote>
+  <p><mark class="marker-pink">Запрос устарел, больше не поддерживается.</mark></p>
+</blockquote>
+<p><code>&lt;ВерсияПротоколаОбмена&gt;\r\n</code><br><code>&lt;Платформа&gt;\r\n</code><br><code>&lt;КодАгента&gt;\r\n</code><br><code>Route\r\n</code><br><code>&lt;Широта&gt;\t&lt;Долгота&gt;\r\n</code><br><code>&lt;КодКлиентаОткуда&gt;\t&lt;КодКонтрагентаКуда&gt;\r\n</code></p>
+<p><code>Ответ:</code><br><code>ОК\r\n</code><br><code>&lt;ШиротаНач&gt;\t&lt;ДолготаНач&gt;\t&lt;ШиротаКон&gt;\t&lt;ДолготаКон&gt;\r\n</code><br><code>[&lt;ШиротаТочки&gt;\t&lt;ДолготаТочки&gt;\r\n]</code><br><code>\r\n</code></p>
+<p>Расчет маршрута между двумя клиентами и выгрузка его в КПК.</p>
+<p>&nbsp;</p>
+<figure class="table" style="width:1328px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <thead>
+      <tr>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:16px;padding:0px;vertical-align:top;">Параметр</th>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:16px;padding:0px;vertical-align:top;">Тип в КПК</th>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:16px;padding:0px;vertical-align:top;">Назначение</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Широта</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">строка</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Значение широты GPS координаты текущего местонахождения агента.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Долгота</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">строка</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Значение долготы GPS координаты текущего местонахождения агента.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">КодКлиентаОткуда</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">строка</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Код клиента от которого будем прокладывать маршрут.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">КодКонтрагентаКуда</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">строка</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Код клиента к которому будем прокладывать маршрут.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">&nbsp;</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">&nbsp;</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">ШиротаНач</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">строка</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Значение широты GPS координаты начальной точки маршрута.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">ДолготаНач</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">строка</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Значение долготы GPS координаты начальной точки маршрута.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">ШиротаКон</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">строка</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Значение широты GPS координаты конечной точки маршрута.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">ДолготаКон</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">строка</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Значение долготы GPS координаты конечной точки маршрута.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">ШиротаТочки</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">строка</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Значение долготы GPS координаты промежуточной точки маршрута.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">ДолготаТочки</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">строка</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Значение долготы GPS координаты промежуточной точки маршрута.</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>&nbsp;</p>

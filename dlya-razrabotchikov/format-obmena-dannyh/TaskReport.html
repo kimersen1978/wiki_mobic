@@ -1,0 +1,102 @@
+<!--
+title: TaskReport
+description: 
+published: true
+date: 2025-12-18T06:31:09.422Z
+tags: 
+editor: ckeditor
+dateCreated: 2023-09-08T07:11:12.530Z
+-->
+
+<h1><strong>&nbsp;TaskReport – запрос отчета по выполненным заданиям</strong></h1>
+<pre><code class="language-plaintext">&lt;ВерсияПротоколаОбмена&gt;\r\n
+&lt;Платформа&gt;\r\n
+&lt;КодАгента&gt;\r\n
+TaskReport\r\n
+&lt;ДатаВремя&gt;\t&lt;КодДок&gt;\t&lt;НомерДок&gt;\t&lt;КодСобытия&gt;\t&lt;Статус&gt;\t&lt;Отчет&gt;\t&lt;Фото&gt;\t&lt;ДатаВремяСохраненияДокумента&gt;\t&lt;ВремяРаботы&gt;\t&lt;ДатаВремяСозданияДокумента&gt;\t&lt;СозданиеШирота&gt;\t&lt;СозданиеДолгота&gt;\t&lt;ДатаВремяВыгрузкаДокумента&gt;\t&lt;ВыгрузкаШирота&gt;\t&lt;ВыгрузкаДолгота&gt;\t&lt;ИдентификаторДокумента&gt;\r\n
+\r\n
+Ответ:
+OK\r\n
+[&lt;КодДок&gt;\t&lt;?&gt;\t&lt;СообщениеОбОшибке&gt;\r\n]
+\r\n
+ </code></pre>
+<figure class="table" style="width:100%;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <thead>
+      <tr>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:16px;padding:0px;vertical-align:top;width:219px;">Параметр</th>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:16px;padding:0px;vertical-align:top;width:1063px;">Назначение</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">ДатаВремя</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">Дата и время выполнения задания в КПК.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">КодДок</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">Номер документа созданного в результате выполнения задания.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">НомерДок</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">
+          <p>Формула формирования номера документа</p>
+          <p>Префикс+Месяц+День+Номер документа</p>
+          <p>Префикс - последние 4 знака кода агента.</p>
+          <p>Месяц - число 2 знака, месяц создания документа</p>
+          <p>День - число 2 знака, день месяца создания документа</p>
+          <p>Номер документа - число 2 знака, номер документа в КПК</p>
+        </td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">КодСобытия</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">Код документа Событие в учетной системе.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:14px;padding:0px;vertical-align:top;width:219px;">Статус</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:14px;padding:0px;vertical-align:top;width:1063px;">Текущий статус задания. 1 - Завершено, другое значение - Отменено.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">Отчет</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">Текстовое описание результатов выполнения задания. Добавляется в поле Комментарий документа Событие.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">Фото</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">Добавляет в поле Комментарий документа <i>Событие</i> имя фото.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">ДатаВремяСохраненияДокумента</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">Дата и время первого сохранения документа на КПК. Может быть использовано для расчета времени затраченного на создание документа.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">ВремяРаботы</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">Время работы над заданием в минутах</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">ДатаВремяСозданияДокумента</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">Дата и время создания документа. Берется с GPS приемника. Выгружается в UTC формате (часовой пояс +0). Если координаты нет это значит, что нет GPS приема или точность координаты более 200 метров.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">СозданиеШирота</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">GPS широта, в формате градусы с десятичной дробной частью</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">СозданиеДолгота</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">GPS долгота, в формате градусы с десятичной дробной частью</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">ДатаВремяВыгрузкаДокумента</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">Дата и время выгрузки документа. &nbsp;Берется с GPS приемника. Выгружается в UTC формате (часовой пояс +0). Если координаты нет это значит, что нет GPS приема или точность координаты более 200 метров.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">ВыгрузкаШирота</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">GPS широта, в формате градусы с десятичной дробной частью</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:219px;">ВыгрузкаДолгота</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:1063px;">GPS долгота, в формате градусы с десятичной дробной частью</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>&nbsp;Создание и контроль выполнения заданий торговым агентом для стандартных конфигураций 1С 8.1 и 8.2 реализовано на базе документа <strong>Событие</strong>.</p>

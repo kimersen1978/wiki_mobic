@@ -1,0 +1,47 @@
+<!--
+title: Режим "Удаленная заявка"
+description: 
+published: true
+date: 2024-05-24T09:30:51.215Z
+tags: 
+editor: ckeditor
+dateCreated: 2023-09-07T12:59:21.522Z
+-->
+
+<p>Настройка Моби-С для схемы работы <strong>Удаленная заявка</strong>. Эта схема подразумевает установку на мобильное устройство Моби-С и передача устройств в стационарный магазин. Лицо принимающее решение сможет оформлять и отправлять заявку на поставку товара. Так же эту задачу решает наше приложение <a href="https://wiki.mobi-c.ru/ru/mobi-s-zakazy/glavnaya"><strong>Моби-С.Заказы</strong></a>.</p>
+<p>Настройка показана на примере обработки для конфигурации Управление Торговлей 10.3.</p>
+<ol>
+  <li>В 1С в справочнике <strong>Контрагенты</strong> создать контрагента с реквизитами магазина.</li>
+  <li>В Моби-С <a href="https://wiki.mobi-c.ru/ru/integraciya-s-1s-8-ut-10/agenty">добавляем нового пользователя</a> с названием магазина.</li>
+  <li>Настраиваем пользователя.</li>
+</ol>
+<h2><strong>Настройки пользователя</strong></h2>
+<p>Вкладка <a href="/integraciya-s-1s-8-ut-10/agenty/nastrojki-agenta/nastrojki"><strong>Настройки</strong></a></p>
+<ul>
+  <li>Отключаем все ненужные документы. Для всех документов кроме <strong>Заказ</strong> в поле <strong>Создавать</strong> выберите значение <strong>&lt;Не доступно на КПК&gt;</strong>.</li>
+  <li>Кнопка <strong>Новый клиент</strong>, отключить создание нового контрагента на КПК, снять флажок <strong>Разрешить создавать нового клиента в группе</strong>.</li>
+  <li>Кнопка <strong>Фотографии</strong>, установить флажок <strong>Выгружать на КПК фотографии товаров.</strong></li>
+</ul>
+<p>На вкладке <a href="/integraciya-s-1s-8-ut-10/agenty/nastrojki-agenta/ceny-i-skidki"><strong>Цены и скидки</strong></a> выберите доступные для магазина типы цен и скидки. Обычно это один тип цены.</p>
+<p>Вкладка <a href="/integraciya-s-1s-8-ut-10/agenty/nastrojki-agenta/nastrojki-kpk"><strong>Настройки КПК</strong></a>, оптимальные настройки показаны на скриншоте. Обязательно установить <strong>Пароль на настройки КПК</strong>.</p>
+<figure class="image"><img src="/funkcii/ot-27.png"></figure>
+<p>На кладке <a href="/integraciya-s-1s-8-ut-10/agenty/nastrojki-agenta/nomenklatura"><strong>Номенклатура</strong></a> настраиваете в соответствии с вашей схемой работы с магазином. Самое важно это фильтр доступных товаров и настройка <strong>Выгружать номенклатуру которой нет в наличии</strong>.</p>
+<p>Вкладка <a href="/integraciya-s-1s-8-ut-10/agenty/nastrojki-agenta/kontragenty"><strong>Контрагенты</strong></a></p>
+<ul>
+  <li>Выбрать магазин в поле<strong> Контрагент на КПК по умолчанию</strong>.</li>
+  <li>В фильтре контрагентов выбрать тип сравнения <strong>Равно</strong>, а в качестве значения наш магазин.</li>
+</ul>
+<p>На вкладке <a href="/integraciya-s-1s-8-ut-10/agenty/nastrojki-agenta/sklady"><strong>Склады</strong></a>, выбрать склады с которых возможно оформление заказа.</p>
+<p>На вкладке <a href="/integraciya-s-1s-8-ut-10/agenty/nastrojki-agenta/organizacii"><strong>Организации</strong></a>, выбрать организации на которые возможно оформление заказа.</p>
+<p>На вкладке <a href="/integraciya-s-1s-8-ut-10/agenty/nastrojki-agenta/otchety"><strong>Отчеты</strong></a>, отключить все ненужные отчеты и добавить отчеты которые могут быть интересны клиенту.</p>
+<p>4) На КПК настраиваем обмен и выполняем запрос <a href="/mobilnyj-klient-na-android/obmen-dannymi/polnaya-zagruzka"><strong>Полная загрузка</strong></a>.</p>
+<p>В результате сделанных настроек на КПК должен получиться вот такой минималистичный интерфейс.</p>
+<figure class="image"><img src="/funkcii/ot-28.png"></figure>
+<p style="text-align:center;"><i>&nbsp;</i></p>
+<p>5) Создаем документ <strong>Заказ</strong> и проверяем все ли в порядке. Проверяем доступные фирмы, склады, контрагенты, товары, актуальные остатки и цены. Выгружаем документ в 1С и проверяем созданный документ.</p>
+<p>Советы по ускорения обмена и снижению объёма передаваемых данных:</p>
+<ol>
+  <li>Настроить автоматическую полную загрузку. Вкладка <strong>Сервис</strong>, кнопка <a href="/integraciya-s-1s-8-ut-10/servis/avtomaticheskaya-polnaya-zagruzka"><strong>Автоматическая полная загрузка</strong></a>.</li>
+  <li>Если не используется печать отключите выгрузку печатных форм. Вкладка <strong>Сервис</strong>, кнопка <a href="/integraciya-s-1s-8-ut-10/servis/nastrojka-pechatnyh-form-na-kpk"><strong>Настройка печатных форм на КПК</strong></a>. Снимите галки со всех строк.</li>
+  <li>Отключить лог действий агентов. Вкладка <strong>Сервис</strong>, кнопка<a href="/integraciya-s-1s-8-ut-10/agenty/log-dejstvij-agentov"> <strong>Лог действий агентов</strong></a>. Для параметра <strong>Уровень логирования на КПК</strong> установить <strong>Выключен</strong>.</li>
+</ol>

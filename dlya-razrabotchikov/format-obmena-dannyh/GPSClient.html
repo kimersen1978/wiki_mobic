@@ -1,0 +1,46 @@
+<!--
+title: GPSClient
+description: 
+published: true
+date: 2023-11-21T13:16:27.819Z
+tags: 
+editor: ckeditor
+dateCreated: 2023-09-08T07:09:41.205Z
+-->
+
+<h1><strong>GPSClient – запрос на выгрузку GPS координат клиентов</strong></h1>
+<pre><code class="language-plaintext">&lt;ВерсияПротоколаОбмена&gt;\r\n
+&lt;Платформа&gt;\r\n
+&lt;КодАгента&gt;\r\n
+GPSClient\r\n
+[&lt;КодКлиента&gt;\t&lt;Широта&gt;\t&lt;Долгота&gt;\r\n]
+Ответ:
+OK
+\r\n</code></pre>
+<p>&nbsp;</p>
+<figure class="table" style="width:1328px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <thead>
+      <tr>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:16px;padding:0px;vertical-align:top;width:99px;">Параметр</th>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);height:16px;padding:0px;vertical-align:top;width:363px;">Назначение</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:99px;">КодКлиента</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:363px;">Код клиента в учетной системе.</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:99px;">Широта</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:363px;">Широта в формате градусы с десятичными долями.</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:99px;">Долгота</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;width:363px;">Долгота в формате градусы с десятичными долями.</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>Выгрузка GPS данных происходит в момент выполнения запроса <a href="/mobilnyj-klient-na-android/obmen-dannymi/vygruzka-dokumentov"><strong>Выгрузка документов</strong></a>.</p>
+<p>&nbsp;</p>

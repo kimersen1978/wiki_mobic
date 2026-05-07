@@ -1,0 +1,137 @@
+<!--
+title: Форматы торговых точек
+description: 
+published: true
+date: 2026-02-12T09:33:20.670Z
+tags: 
+editor: code
+dateCreated: 2023-09-06T08:16:39.636Z
+-->
+
+<p>Формирование ассортиментной матрицы в Моби-С это дополнительная сервисная возможность для облегчения создания списка продаж товаров для выбранного клиента. Многие крупные компании формируют списки товаров обязательных или рекомендуемых к продаже в определенном канале сбыта. Формат торговой точки это общее название, категория характеризующая клиентов по каким либо параметрам. &nbsp;Товарная матрица это просто название списка или группы товаров собранных по какому-либо признаку. После того как матрица сформирована для товаров, она так же присваивается клиенту. Агент при посещении клиента видит в списке товаров подсвеченные синим цветом товары рекомендованные для продажи данному клиенту в разрезе форматов тт.</p>
+<iframe width="720" height="405" src="https://rutube.ru/play/embed/0c0b7cb035d9bdb0b5f603ef7d2ace81/" frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<h2><strong>Ассортиментная матрица пример</strong></h2>
+<p>В Моби-С используется создание ассортиментной матрицы товара и привязки к клиентам с использованием форматов торговых точек. Задается несколько категорий форматов. Каждый формат тт содержит свой список товаров. Клиенту может быть назначен только один формат.</p>
+<p>Шаг 1: Создаем список форматов тт</p>
+<figure class="table" style="width:1311px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <thead>
+      <tr>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Формат ТТ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Палатка</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Супермаркет</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Торговый комплекс</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>Шаг 2: Матрица товара, распределяем товары по форматам тт. Один товар может находиться в разных форматах. Обратите внимание Товар 3 может продаваться в как в формате Палатка так и в формате Супермаркет.</p>
+<figure class="table" style="width:1311px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <thead>
+      <tr>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Наименование</th>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Формат ТТ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Товар 1</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Палатка</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Товар 2</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Супермаркет</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;" rowspan="2">Товар 3</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Палатка</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Супермаркет</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>Шаг 3: Присваиваем клиенту формат тт. Один клиент - один формат.</p>
+<figure class="table" style="width:1311px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <thead>
+      <tr>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Наименование</th>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Формат ТТ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Клиент 1</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Палатка</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Клиент 2</td>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Супермаркет</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>Так в результате будет выглядеть наша ассортиментная матрица.</p>
+<figure class="table" style="width:1311px;">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:2px solid rgb(153, 204, 255);border-left:2px solid rgb(153, 204, 255);border-right:2px solid rgb(153, 204, 255);border-top:2px solid rgb(153, 204, 255);">
+    <thead>
+      <tr>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Клиент</th>
+        <th style="background-color:rgb(153, 204, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Товар</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;" rowspan="2">Клиент 1</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Товар 1</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Товар 3</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;" rowspan="2">Клиент 2</td>
+        <td style="border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Товар 2</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(255, 255, 255);border-bottom:1px solid rgb(153, 204, 255);border-left:1px solid rgb(153, 204, 255);border-right:1px solid rgb(153, 204, 255);border-top:1px solid rgb(153, 204, 255);padding:0px;vertical-align:top;">Товар 3</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>При выборе клиента Клиент 1 в списке товаров, товары входящие в тот же формат тт, что и клиент, будут подсвечены синим цветом.</p>
+<h2><strong>Ассортиментная матрица и Моби-С</strong></h2>
+<p>После того как вы создали ассортиментную матрицу её можно использовать для целей автоматизации мобильной торговли. Товарная матрица загружается в КПК в момент выполнения запроса <strong>Полная загрузка</strong>. Создайте любой документ. Выберите клиента для которого настроена товарная матрица. Перейдите на вкладку <strong>Товары</strong>. Нажмите кнопку выбора фильтра (кнопка со звездочкой, слева вверху над списком товаров). В открывшемся диалоге выберите пункт <strong>Присутствует в канале продаж</strong>. После использования этого фильтра в списке товаров останутся только товары из ассортиментной матрицы.</p>
+<figure class="image"><img src="/ut10/10.png"></figure>
+<h2><strong>Добавление нового формата тт</strong></h2>
+<p>Нажмите в верхнем тулбаре кнопку <strong>Добавить</strong>. Откроется диалог создания нового формата тт. Заполните поле <strong>Наименование</strong> и нажмите кнопку <strong>Записать</strong>. В диалоге появятся дополнительные вкладки и вы сразу можете сформировать ассортиментную матрицу для этого формата тт. Когда закончите, нажмите кнопку <strong>ОК</strong>. В списке добавиться формат тт. Так же этот формат появится в качестве нового столбца в таблицах на вкладках <strong>Контрагенты</strong> и <strong>Номенклатура</strong>.</p>
+<h2><strong>Распределение товаров по форматам тт</strong></h2>
+<p>Перейдите на вкладку <strong>Номенклатура</strong>. Для присвоения товару какого либо формата кликните два раза мышью в таблице на пересечении строки товара и столбца с названием формата тт. Если вы проделаете эту операцию с группой товаров то выбранный формат тт будет присвоен всем товарам входящим в эту группу.</p>
+<h2><strong>Выбор формата тт для контрагента</strong></h2>
+<p>Перейдите на вкладку <strong>Контрагенты</strong>. Для присвоения контрагенту какого либо формата тт кликните два раза мышью в таблице на пересечении строки контрагента и столбца с названием формата тт. Если вы проделаете эту операцию с группой контрагентов то выбранный формат тт будет присвоен всем контрагентам входящим в эту группу.</p>
+<h2><strong>Редактирование формата тт</strong></h2>
+<p>Выберите строку с форматом тт. Нажмите кнопку <strong>Редактировать </strong>или дважды кликните мышью. Откроется диалог редактирования формата тт.</p>
+<p>В данном диалоге можно</p>
+<ul>
+  <li>изменить название формата тт</li>
+  <li>просмотреть всех использующих его клиентов и товары</li>
+  <li>изменить список клиентов и товаров</li>
+  <li>сформировать сценарий посещения по умолчанию</li>
+</ul>
+<p>Сценарий посещения по умолчанию позволяет задать список заданий который наиболее часто используется при посещении торговых точек данного формата. Сформируйте сценарий посещения и в будущем вы можете в один клик мыши задавать его при создании <a href="https://mobi-c.ru/help/mobimi8_journalroute.htm">заданий для торгового агента</a>.</p>
+<p>Вы можете отключить выгрузку каналов сбыта в настройках агента на вкладке <a href="https://mobi-c.ru/help/mobimobimi8_journalagentssettingsp.htm">Настройки КПК</a>.</p>
+<p>ВНИМАНИЕ! Программа автоматически создает необходимые значения свойств и категорий для товаров и клиентов. Создавать и изменять названия форматов тт можно только в этой обработке.</p>
+<p>После того как вы создали ассортиментную матрицу её можно использовать для целей автоматизации мобильной торговли. Товарная матрица загружается в КПК в момент выполнения запроса <strong>Полная загрузка</strong>.</p>
+<p>Создайте любой документ. Выберите клиента для которого настроена товарная матрица. Перейдите на вкладку <strong>Товары</strong>. Нажмите кнопку выбора фильтра (кнопка со звездочкой, слева вверху над списком товаров). В открывшемся диалоге выберите пункт <strong>Присутствует в канале продаж</strong>.</p>
+<figure class="image"><img src="/mobilnyj-klient/help69.png"></figure>
+<p>После использования этого фильтра в списке товаров останутся только товары из ассортиментной матрицы.</p>

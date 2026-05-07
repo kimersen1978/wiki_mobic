@@ -1,0 +1,138 @@
+<!--
+title: PocketServer.dll
+description: 
+published: true
+date: 2024-09-10T08:45:01.390Z
+tags: 
+editor: ckeditor
+dateCreated: 2023-09-08T07:13:10.939Z
+-->
+
+<p>Обмен данными между учетной системой и КПК выполняется через внешнюю компоненту PocketServer.dll (начиная с версии 4.9 в имя компоненты добавлена цифра номера версии &nbsp;PocketServer49.dll). После &nbsp;получения запроса от КПК данные запроса передаются во внешний отчет, который в зависимости от типа запроса либо принимает данные в учетной системе либо подготавливает данные для выгрузки в КПК. Инициатором обмена всегда выступает КПК. Все запросы и ответы представляют собой текстовые строки, разделяемые символами CR/LF. Весь поток данных от сервера к КПК сжимается по алгоритму ZIP. Вся работа по сжатию выполняется PocketServer.dll.</p>
+<h2><strong>Описание функций внешней компоненты PocketServer.dll</strong></h2>
+<p>&nbsp;</p>
+<p><strong>Инициализация(&lt;?&gt;);</strong><br><u>Синтаксис:</u><br>Инициализация(&lt;Порт&gt;)<br><u>Назначение:</u><br>Инициализация&nbsp;внешней&nbsp;компоненты,&nbsp;открытие&nbsp;порта&nbsp;и&nbsp;начало&nbsp;&nbsp;мониторинга&nbsp;по&nbsp;переданному&nbsp;порту.<br><u>Возвращаемое&nbsp;значение:</u><br>Число,&nbsp;1&nbsp;порт&nbsp;открыт,&nbsp;0&nbsp;ошибка&nbsp;инициализации.<br><u>Параметры:</u>&nbsp;<br>&lt;Порт&gt;&nbsp;-&nbsp;число,&nbsp;порт&nbsp;по&nbsp;которому&nbsp;осуществляется&nbsp;связь.</p>
+<p><strong>Завершить();</strong><br><u>Синтаксис:</u><br>Завершить()<br><u>Назначение:</u><br>Завершить&nbsp;процесс&nbsp;мониторинга&nbsp;порта.</p>
+<p><strong>ПослатьОтвет(&lt;?&gt;,,);</strong><br><u>Синтаксис</u>:<br>ПослатьОтвет(&lt;Адрес&gt;,&lt;Ответ&gt;,&lt;ПоследняяСтрока&gt;)<br><u>Назначение:</u><br>Передает&nbsp;строку&nbsp;текста&nbsp;внешней&nbsp;компоненте&nbsp;для&nbsp;последующей&nbsp;отправки&nbsp;на&nbsp;КПК.<br><u>Возвращаемое&nbsp;значение:</u><br>Число,&nbsp;1&nbsp;передано,&nbsp;0&nbsp;ошибка&nbsp;передачи.<br><u>Параметры:</u>&nbsp;<br>&lt;Адрес&gt;&nbsp;-&nbsp;строка,&nbsp;уникальный&nbsp;идентификатор&nbsp;текущей&nbsp;сессии&nbsp;обмена.<br>&lt;Ответ&gt;&nbsp;-&nbsp;строка,&nbsp;передаваемая&nbsp;в&nbsp;КПК&nbsp;строка.<br>&lt;ПоследняяСтрока&gt;&nbsp;-&nbsp;число,&nbsp;если&nbsp;1&nbsp;то&nbsp;это&nbsp;последняя&nbsp;строка,&nbsp;0&nbsp;любая&nbsp;другая.</p>
+<p><strong>ЗапросОбработан();</strong></p>
+<p><u>Синтаксис:</u><br>ЗапросОбработан()<br><u>Назначение:</u><br>Завершить&nbsp;процесс&nbsp;отправки&nbsp;данных.</p>
+<p><strong>ПослатьФайл(&lt;?&gt;,);</strong><br><u>Синтаксис</u>:<br>ПослатьФайл(&lt;Адрес&gt;,&lt;ПутьКФайлу&gt;)<br><u>Назначение:</u><br>Передать&nbsp;указанный&nbsp;в&nbsp;ПутьКФайлу&nbsp;файл&nbsp;на&nbsp;КПК.<br><u>Возвращаемое&nbsp;значение:</u><br>Число,&nbsp;1&nbsp;передано,&nbsp;0&nbsp;ошибка&nbsp;передачи.<br><u>Параметры:</u>&nbsp;<br>&lt;Адрес&gt;&nbsp;-&nbsp;строка,&nbsp;уникальный&nbsp;идентификатор&nbsp;текущей&nbsp;сессии&nbsp;обмена.<br>&lt;ПутьКФайлу&gt;&nbsp;-&nbsp;строка,&nbsp;полный&nbsp;путь&nbsp;к&nbsp;файлу.</p>
+<p><strong>ИсходящийТрафик();</strong><br><u>Синтаксис:</u><br>ИсходящийТрафик()<br><u>Назначение:</u><br>Возвращает&nbsp;количество&nbsp;переданной&nbsp;информации&nbsp;с&nbsp;момента&nbsp;инициализации&nbsp;до&nbsp;завершения&nbsp;работы&nbsp;внешней&nbsp;компоненты.<br><u>Возвращаемое&nbsp;значение:</u><br>Число,&nbsp;передано&nbsp;информации&nbsp;в&nbsp;байтах.</p>
+<p><strong>ВходящийТрафик();</strong><br><u>Синтаксис:</u><br>ВходящийТрафик()<br><u>Назначение:</u><br>Возвращает&nbsp;количество&nbsp;полученной&nbsp;информации&nbsp;с&nbsp;момента&nbsp;инициализации&nbsp;до&nbsp;завершения&nbsp;работы&nbsp;внешней&nbsp;компоненты.<br><u>Возвращаемое&nbsp;значение:</u><br>Число,&nbsp;получено&nbsp;информации&nbsp;в&nbsp;байтах.</p>
+<p><strong>ACos(&lt;?&gt;);</strong><br><u>Синтаксис:</u><br>Acos(&lt;Число&gt;)<br><u>Назначение:</u><br>Рассчитывает&nbsp;арккосинус&nbsp;числа.<br><u>Возвращаемое&nbsp;значение:</u><br>Арккосинус&nbsp;переданного&nbsp;числа.<br><u>Параметры:</u>&nbsp;<br>&lt;Число&gt;&nbsp;-&nbsp;число.</p>
+<p><strong>Sin(&lt;?&gt;);</strong><br><u>Синтаксис:</u><br>Sin(&lt;Число&gt;)<br><u>Назначение:</u><br>Рассчитывает&nbsp;синус&nbsp;числа.<br><u>Возвращаемое&nbsp;значение:</u><br>Синус&nbsp;переданного&nbsp;числа.<br><u>Параметры:</u>&nbsp;<br>&lt;Число&gt;&nbsp;-&nbsp;число.</p>
+<p><strong>Cos(&lt;?&gt;);</strong><br><u>Синтаксис:</u><br>Cos(&lt;Число&gt;)<br><u>Назначение:</u><br>Рассчитывает&nbsp;косинус&nbsp;числа.<br><u>Возвращаемое&nbsp;значение:</u><br>Косинус&nbsp;переданного&nbsp;числа.<br><u>Параметры:</u>&nbsp;<br>&lt;Число&gt;&nbsp;-&nbsp;число.</p>
+<p><strong>Версия();</strong><br><u>Синтаксис:</u><br>Версия()<br><u>Назначение:</u><br>Возвращает&nbsp;текущую&nbsp;версию&nbsp;внешней&nbsp;компоненты.<br><u>Возвращаемое&nbsp;значение:</u><br>Строка,&nbsp;версия&nbsp;внешней&nbsp;компоненты.</p>
+<p><strong>ПерезапуститьКомпрессор(&lt;?&gt;);</strong><br><u>Синтаксис:</u><br>ПерезапуститьКомпрессор(&lt;Адрес&gt;)<br><u>Назначение:</u><br>Перезапускает&nbsp;компрессор&nbsp;данных&nbsp;при&nbsp;резкой&nbsp;смене&nbsp;поступающих&nbsp;данных.<br><u>Возвращаемое&nbsp;значение:</u><br>Число,&nbsp;0&nbsp;ошибка&nbsp;выполнения.<br><u>Параметры:</u><br>&lt;Адрес&gt;&nbsp;-&nbsp;строка,&nbsp;уникальный&nbsp;идентификатор&nbsp;текущей&nbsp;сессии&nbsp;обмена.&nbsp;</p>
+<p><strong>ConvertUTCtoLocal(&lt;?&gt;);</strong><br><u>Синтаксис:</u><br>ConvertUTCtoLocal(&lt;ГлобальноеВремя&gt;)<br><u>Назначение:</u><br>Конвертирует&nbsp;время&nbsp;из&nbsp;(Универсального&nbsp;координированного&nbsp;времени)&nbsp;UTC&nbsp;в&nbsp;локальное&nbsp;время&nbsp;Windows.<br><u>Возвращаемое&nbsp;значение:</u><br>Строка,&nbsp;локальное&nbsp;время.<br><u>Параметры:</u>&nbsp;<br>&lt;ГлобальноеВремя&gt;&nbsp;-&nbsp;строка,&nbsp;содержит&nbsp;дату&nbsp;и&nbsp;время&nbsp;в&nbsp;UTC.</p>
+<p><strong>ЗарегистрироватьКПК(&lt;?&gt;,);</strong><br><u>Синтаксис:</u><br>ЗарегистрироватьКПК(&lt;КодКПК&gt;,&lt;Ключ&gt;)<br><u>Назначение:</u><br>Передает&nbsp;во&nbsp;внешнюю&nbsp;компоненту&nbsp;код&nbsp;КПК&nbsp;и&nbsp;лицензионный&nbsp;ключ&nbsp;для&nbsp;регистрации.<br><u>Возвращаемое&nbsp;значение:</u><br>Строка,&nbsp;тип&nbsp;лицензии&nbsp;передаваемых&nbsp;регистрационных&nbsp;данных.<br><u>Параметры:</u>&nbsp;<br>&lt;КодКПК&gt;&nbsp;-&nbsp;строка,&nbsp;код&nbsp;мобильного&nbsp;устройства&nbsp;(КПК&nbsp;или&nbsp;коммуникатор).<br>&lt;Ключ&gt;&nbsp;-&nbsp;строка,&nbsp;лицензионный&nbsp;ключ&nbsp;приобретенный&nbsp;для&nbsp;текущего&nbsp;КПК.</p>
+<p><strong>ОтправитьEMail(&lt;?&gt;,);</strong><br><u>Синтаксис:</u><br>ОтправитьEMail(&lt;Тема&gt;,&lt;Сообщение&gt;,&lt;Вложение&gt;)<br><u>Назначение:</u><br>Отправляет&nbsp;емаил&nbsp;разработчику&nbsp;Моби-С.<br><u>Возвращаемое&nbsp;значение:</u><br>Число,&nbsp;если&nbsp;0&nbsp;письмо&nbsp;не&nbsp;отправлено,&nbsp;если&nbsp;1&nbsp;отправка&nbsp;прошла&nbsp;успешно.<br><u>Параметры:</u>&nbsp;<br>&lt;Тема&gt;&nbsp;-&nbsp;Тема&nbsp;письма.<br>&lt;Сообщение&gt;&nbsp;-&nbsp;Содержимое&nbsp;письма.<br>&lt;Вложение&gt;&nbsp;-&nbsp;Список&nbsp;путей&nbsp;к&nbsp;файлам,&nbsp;которые&nbsp;необходимо&nbsp;вложить&nbsp;в&nbsp;письмо,&nbsp;отдельные&nbsp;файлы&nbsp;разделены&nbsp;запятыми.</p>
+<p><strong>ПолучитьСтатусСервера(&lt;?&gt;,);(на&nbsp;данный&nbsp;момент&nbsp;функция&nbsp;устарела&nbsp;и&nbsp;не&nbsp;используется)</strong><br><u>Синтаксис:</u><br>ПолучитьСтатусСервера()<br><u>Назначение:</u><br>Возвращает&nbsp;список&nbsp;интерфейсов&nbsp;у&nbsp;которых&nbsp;удалось&nbsp;открыть&nbsp;порт&nbsp;и&nbsp;выводит&nbsp;сообщения(всплывающие)&nbsp;если&nbsp;порт&nbsp;открыть&nbsp;не&nbsp;удалось.<br><u>Возвращаемое&nbsp;значение:</u><br>Строка,&nbsp;список&nbsp;интерфейсов&nbsp;и&nbsp;результат&nbsp;открытия&nbsp;порта.</p>
+<blockquote>
+  <p>Пример&nbsp;возвращаемого&nbsp;значения:<br>Открыт&nbsp;порт&nbsp;1234&nbsp;на&nbsp;интерфейсе&nbsp;с&nbsp;IP-адресом&nbsp;192.168.50.1<br>Открыт&nbsp;порт&nbsp;1234&nbsp;на&nbsp;интерфейсе&nbsp;с&nbsp;IP-адресом&nbsp;192.168.0.24</p>
+</blockquote>
+<p>&nbsp;<strong>ЗадатьПапкуАгента(&lt;?&gt;,);</strong><br><u>Синтаксис:</u><br>ЗадатьПапкуАгента(&lt;КодАгента&gt;,&lt;ТипФайла&gt;,&lt;ПутьКПапке&gt;)<br><u>Назначение:</u><br>Выгружает&nbsp;в&nbsp;сервер&nbsp;пути&nbsp;к&nbsp;персональным&nbsp;папкам&nbsp;агента.&nbsp;Сейчас&nbsp;в&nbsp;них&nbsp;выгружаются&nbsp;фото&nbsp;сделанные&nbsp;на&nbsp;КПК.<br><u>Возвращаемое&nbsp;значение:</u><br>Число,&nbsp;если&nbsp;0&nbsp;произошла&nbsp;ошибка,&nbsp;если&nbsp;1&nbsp;операция&nbsp;прошла&nbsp;успешно.<br><u>Параметры:</u>&nbsp;<br>&lt;КодАгента&gt;&nbsp;-&nbsp;Код&nbsp;агента.<br>&lt;ТипФайла&gt;&nbsp;-&nbsp;Тип&nbsp;файла.&nbsp;Сейчас&nbsp;предопределены&nbsp;с&nbsp;типа.&nbsp;Client&nbsp;-&nbsp;фото&nbsp;клиентов,&nbsp;Good&nbsp;-&nbsp;фото&nbsp;товаров<br>&lt;ПутьКПапке&gt;&nbsp;-&nbsp;Полный&nbsp;путь&nbsp;к&nbsp;папке.</p>
+<p><strong>ЗапуститьПриложение(&lt;?&gt;,);</strong><br><u>Синтаксис:</u><br>ЗапуститьПриложение(&lt;Путь&gt;)<br><u>Назначение:</u><br>Запускает&nbsp;из&nbsp;Моби-С&nbsp;выбранное&nbsp;приложение.<br><u>Возвращаемое&nbsp;значение:</u><br>Число,&nbsp;операция&nbsp;выполнена&nbsp;успешно&nbsp;если&nbsp;значение&nbsp;более&nbsp;0.<br><u>Параметры:</u>&nbsp;<br>&lt;Путь&gt;&nbsp;-&nbsp;Полный&nbsp;путь&nbsp;к&nbsp;запускаемому&nbsp;приложению&nbsp;с&nbsp;коммандной&nbsp;строкой.</p>
+<p><strong>МетаданныеФото(&lt;?&gt;,);</strong><br><u>Синтаксис:</u><br>МетаданныеФото(&lt;ПутьКФото&gt;)<br><u>Назначение:</u><br>Проверка&nbsp;цифровой&nbsp;подписи&nbsp;и&nbsp;получение&nbsp;дополнительных&nbsp;сведений&nbsp;о&nbsp;фотографии.<br><u>Возвращаемое&nbsp;значение:</u><br>Строка,&nbsp;если&nbsp;1&nbsp;строка&nbsp;то&nbsp;это&nbsp;сообщение&nbsp;об&nbsp;ошибке,&nbsp;если&nbsp;больше&nbsp;то&nbsp;структура&nbsp;с&nbsp;данными.<br><br><strong>Содержимое&nbsp;структуры</strong><br>ТипОбьекта(1&nbsp;-&nbsp;контрагенты&nbsp;4&nbsp;-&nbsp;номенклатура)+Пробел+КодОбьекта\r\n<br>Дата(yyyy:mm:dd)+Пробел+Время(hh:mm:ss)\r\n<br>Широта\r\n&nbsp;<br>Долгота\r\n<br>СостояниеЦифровойПодписи\r\n<br>Комментарий\r\n<br>Ориентация<br><u>Параметры:</u>&nbsp;<br>&lt;ПутьКФото&gt;&nbsp;-&nbsp;Полный&nbsp;путь&nbsp;к&nbsp;файлу&nbsp;с&nbsp;фотографией.</p>
+<p><strong>УстановитьФайлКлючей(&lt;?&gt;);</strong><br><u>Синтаксис:</u><br>УстановитьФайлКлючей(&lt;ПутьКФайлуКлючей&gt;)<br><u>Назначение:</u><br>Выгружает&nbsp;в&nbsp;сервер&nbsp;путь&nbsp;к&nbsp;файлу&nbsp;с&nbsp;лицензионными&nbsp;ключами<br><u>Возвращаемое&nbsp;значение:</u><br>Строка,&nbsp;если&nbsp;1&nbsp;строка&nbsp;то&nbsp;это&nbsp;сообщение&nbsp;об&nbsp;ошибке,&nbsp;если&nbsp;больше&nbsp;то&nbsp;структура&nbsp;с&nbsp;данными.<br><u>Параметры:</u>&nbsp;<br>&lt;ПутьКФайлуКлючей&gt;&nbsp;-&nbsp;Полный&nbsp;путь&nbsp;к&nbsp;файлу&nbsp;(<strong>lickeys.txt</strong>)&nbsp;с&nbsp;онлайн&nbsp;ключами.</p>
+<p><strong>УстановитьФайлЧерногоСписка(&lt;?&gt;);</strong><br><u>Синтаксис:</u><br>УстановитьФайлЧерногоСписка(&lt;ПутьКЧерномуСписку&gt;)<br><u>Назначение:</u><br>Выгружает&nbsp;в&nbsp;сервер&nbsp;путь&nbsp;к&nbsp;файлу&nbsp;с&nbsp;черным&nbsp;списком&nbsp;лицензионных&nbsp;ключей.<br><u>Возвращаемое&nbsp;значение:</u><br>Строка,&nbsp;если&nbsp;пустая&nbsp;строка,&nbsp;значит&nbsp;возникли&nbsp;проблемы&nbsp;с&nbsp;загрузкой&nbsp;и&nbsp;проверкой&nbsp;черного&nbsp;списка.<br><u>Параметры:</u>&nbsp;<br>&lt;ПутьКЧерномуСписку&gt;&nbsp;-&nbsp;Полный&nbsp;путь&nbsp;к&nbsp;файлу&nbsp;(<strong>blacklist.bin</strong>).&nbsp;Файл&nbsp;содержит&nbsp;данные&nbsp;по&nbsp;заблокированным&nbsp;ключам.</p>
+<p><strong>Пауза(&lt;?&gt;);</strong><br><u>Синтаксис:</u><br>БазаДанныхОткрыть(&lt;Пауза&gt;)<br><u>Назначение:</u><br>Возможно&nbsp;задать&nbsp;задержку&nbsp;выполнения&nbsp;в&nbsp;процедуре..<br><u>Возвращаемое&nbsp;значение:</u><br><br><u>Параметры:</u>&nbsp;<br>&lt;Пауза&gt;&nbsp;-&nbsp;Время&nbsp;задержки.&nbsp;1&nbsp;сек&nbsp;=&nbsp;1000.</p>
+<p><strong>БазаДанныхОткрыть(&lt;?&gt;);</strong><br><u>Синтаксис:</u><br>БазаДанныхОткрыть(&lt;ПутьКБД&gt;)<br><u>Назначение:</u><br>Открывает&nbsp;базу&nbsp;данных&nbsp;sqlite.<br><u>Возвращаемое&nbsp;значение:</u><br>Число,&nbsp;если&nbsp;0&nbsp;произошла&nbsp;ошибка,&nbsp;если&nbsp;1&nbsp;операция&nbsp;прошла&nbsp;успешно.<br><u>Параметры:</u>&nbsp;<br>&lt;ПутьКБД&gt;&nbsp;-&nbsp;Полный&nbsp;путь&nbsp;к&nbsp;файлу&nbsp;базы&nbsp;данных&nbsp;sqlite.</p>
+<p><strong>БазаДанныхЗакрыть(&lt;?&gt;);</strong><br><u>Синтаксис:</u><br>БазаДанныхОткрыть(&lt;ПутьКБД&gt;)<br><u>Назначение:</u><br>Закрывает&nbsp;открытую&nbsp;базу&nbsp;данных&nbsp;sqlite.<br><u>Возвращаемое&nbsp;значение:</u><br>Число,&nbsp;если&nbsp;0&nbsp;произошла&nbsp;ошибка,&nbsp;если&nbsp;1&nbsp;операция&nbsp;прошла&nbsp;успешно.<br><u>Параметры:</u>&nbsp;<br>&lt;ПутьКБД&gt;&nbsp;-&nbsp;Полный&nbsp;путь&nbsp;к&nbsp;файлу&nbsp;базы&nbsp;данных&nbsp;sqlite.</p>
+<p>Дополнительные&nbsp;функции&nbsp;для&nbsp;работы&nbsp;с&nbsp;открытой&nbsp;базой&nbsp;sqlite.&nbsp;Если&nbsp;вам&nbsp;нужна&nbsp;детальная&nbsp;информация&nbsp;по&nbsp;работе&nbsp;с&nbsp;этими&nbsp;функциями&nbsp;обращайтесь&nbsp;в&nbsp;техническую&nbsp;поддержку&nbsp;Моби-С.</p>
+<p>БазаДанныхПодготовитьЗапрос(Соединение,&nbsp;ТекстЗапроса)<br>БазаДанныхСледующаяЗапись(ПодгЗапрос)<br>БазаДанныхЗакрытьПодготовленныйЗапрос(ПодгЗапрос)<br>БазаДанныхСбросПодготовленногоЗапроса(ПодгЗапрос)<br>БазаДанныхЗначениеВКолонке(ПодгЗапрос,&nbsp;ИндексКолонки)<br>БазаДанныхУстановитьПараметр(ПодгЗапрос,&nbsp;НомерПараметра,&nbsp;_Значение)</p>
+<h2><strong>Обновление PocketServer.dll</strong></h2>
+<p>Серверная компонента <strong>"PocketServer55.dll"</strong> необходима для нормальной работы модуля интеграции Моби-С. Компонента интегрирована в модуль интеграции Моби-С и устанавливается на компьютер при запуске модуля. Может возникнуть ситуация, когда в необходимо обновить в текущем модуле интеграции серверную компоненту, а обработку оставить старой.</p>
+<p>На вкладке <a href="/integraciya-s-1s-8-ut-10/pocketserver-dll"><strong>Сервер обмена</strong></a><strong> </strong>отображается дата сборки текущей подключенной библиотеки <strong>"PocketServer55.dll".</strong></p>
+<p>Библиотека <strong>PocketServer55.dll</strong> поставляется в 2х версиях, для <strong>32</strong> и <strong>64</strong> битной платформы 1С:Предприятие 8.</p>
+<h2><strong>Обновление PocketServer.dll в обработке 1С для старых версий Windows v6.0 и ниже</strong></h2>
+<p><a href="https://www.gaijin.at/en/infos/windows-version-numbers"><u>Список версий ОС Windows.</u></a></p>
+<ol>
+  <li>Для регистрации библиотеки потребуются права Администратора.</li>
+  <li>Скачайте фалы библиотеки <a href="https://mobi-c.ru/arc/PocketServer/PocketServer55_32.dll"><u>PocketServer55_32.dll</u></a> и <a href="https://mobi-c.ru/arc/PocketServer/PocketServer55_64.dll"><u>PocketServer55_64.dll</u></a></li>
+  <li>Положите файлы в каталог <strong>bin</strong> установленной платформы 1С:Предприятие 8.</li>
+  <li>Закройте все открытые 1С.</li>
+  <li>Зарегистрируйте оба файла используя команду <strong>"regsvr32". </strong>Если вы знаете какой разрядности у вас используется платформа 1С:Предприятие 8, то можете регистрировать только нужную библиотеку <strong>PocketServer.dll.</strong></li>
+  <li>В результате должно появиться сообщение об удачной регистрации библиотеки.</li>
+  <li>Запустите 1С и откройте изменённую обработку. Проверьте, что дата сборки <strong>PocketServer</strong> изменилась на <a href="https://mobi-c.ru/arc/PocketServer/PocketServer55.txt"><u>новую</u></a>.</li>
+</ol>
+<h2><strong>Обновление PocketServer.dll в обработке 1С для Windows 7.0 и выше</strong></h2>
+<p>В более новых ОС Windows библиотека находится в самой обработке Моби-С и устанавливается и регистрируется при её запуске. Поэтому необходимо открыть вашу обработку в конфигураторе и заменить библиотеки на новые.&nbsp;</p>
+<h2><strong>Замена библиотек для конфигурации Управление Торговлей 10.3 и аналогичных</strong></h2>
+<ol>
+  <li>Скачайте файлы библиотеки <a href="https://mobi-c.ru/arc/PocketServer/PocketServer55_32.dll"><u>PocketServer55_32.dll</u></a> и <a href="https://mobi-c.ru/arc/PocketServer/PocketServer55_64.dll"><u>PocketServer55_64.dll</u></a></li>
+  <li>Запустите конфигуратор 1С и откройте в нём модуль интеграции Моби-С.</li>
+  <li>В разделе <strong>Макеты</strong> двойной клик мышью на элементе <strong>PocketServer</strong>.</li>
+  <li>В открывшемся диалоге <strong>Двоичные данные</strong> нажмите кнопку <strong>Загрузить из файла</strong>.</li>
+  <li>Выберите скачанный файл <strong>PocketServer55_32.dll</strong>.</li>
+  <li>В открывшемся <strong>Двоичные данные</strong> нажмите кнопку <strong>ОК</strong>.</li>
+  <li>В разделе <strong>Макеты</strong> двойной клик мышью на <strong>PocketServer64</strong>.</li>
+  <li>В открывшемся диалоге <strong>Двоичные данные</strong> нажмите кнопку <strong>Загрузить из файла</strong>.</li>
+  <li>Выберите скачанный файл <strong>PocketServer55_64.dll</strong>.</li>
+  <li>В открывшемся <strong>Двоичные данные</strong> нажмите кнопку <strong>ОК</strong>.</li>
+  <li>В верхнем меню конфигуратора выберите пункт <strong>Файл ⇒ Сохранить</strong>.</li>
+  <li>Закройте конфигуратор и все 1С.</li>
+  <li>Запустите 1С и откройте изменённую обработку. Проверьте, что дата сборки <strong>PocketServer</strong> изменилась на <a href="https://mobi-c.ru/arc/PocketServer/PocketServer55.txt"><u>новую</u></a>.</li>
+</ol>
+<h2><strong>Замена библиотек для конфигурации Управление Торговлей 11 и аналогичных (на управляемых формах)</strong></h2>
+<ol>
+  <li>Скачайте файлы библиотеки <a href="https://mobi-c.ru/arc/PocketServer/PocketServer55.zip"><u>PocketServer55.zip</u></a></li>
+  <li>Запустите конфигуратор 1С и откройте в нём модуль интеграции Моби-С.</li>
+  <li>В разделе <strong>Макеты</strong> двойной клик мышью на элементе <strong>PocketServer</strong>.</li>
+  <li>В открывшемся диалоге <strong>Двоичные данные</strong> нажмите кнопку <strong>Загрузить из файла</strong>.</li>
+  <li>Выберите скачанный файл <strong>PocketServer55.zip</strong>.</li>
+  <li>В открывшемся <strong>Двоичные данные</strong> нажмите кнопку <strong>ОК</strong>.</li>
+  <li>В верхнем меню конфигуратора выберите пункт <strong>Файл ⇒ Сохранить</strong>.</li>
+  <li>Закройте конфигуратор и все 1С.</li>
+  <li>Запустите 1С и откройте изменённую обработку. Вы получите сообщение <strong>Внешняя компонента успешно установлена</strong>.</li>
+  <li>Проверьте, что дата сборки <strong>PocketServer</strong> изменилась на <a href="https://mobi-c.ru/arc/PocketServer/PocketServer55.txt"><u>новую</u></a>.</li>
+</ol>
+<p>Внимание! Если дата сборки библиотеки осталась старая, проверьте и повторите все действия. Войдите в <strong>Windows</strong> под пользователем с правами <strong>Администратора</strong> и запустите 1С и обработку. Запустить 1С:Предприятие под Администратором можно выбрав в контекстном меню ярлыка 1С пункт <strong>"Запуск от имени администратора"</strong>.</p>
+<h2>Доработка старых обработок для работы с новой PocketServer</h2>
+<h3><strong>Доработка метода"Сервер.СоединениеСОблаком</strong></h3>
+<p>В Моби-С начиная до даты релиза <strong>03.03.2020</strong> добавился новый способ работы с облачным сервером - были адреса sky1.mobi-c.ru и sky2.mobi-c.ru, стал адрес sky.mobi-c.net.</p>
+<ol>
+  <li>Найти поиском в модуле <strong>Основной формы</strong> все места с методом <strong>Сервер.СоединениеСОблаком</strong>.</li>
+  <li>Для всех методов <strong>Сервер.СоединениеСОблаком добавьте четвертый параметр "WebSocket".</strong><br><strong>было</strong> <code>Сервер.СоединениеСОблаком(Параметр.КодУчетнойСистемы, Параметр.ПарольУчетнойСистемы, ИмяКомпьютера()+"-"+ИмяПользователя());</code><br><strong>стало</strong> <code>Сервер.СоединениеСОблаком(Параметр.КодУчетнойСистемы, Параметр.ПарольУчетнойСистемы, ИмяКомпьютера()+"-"+ИмяПользователя()<strong>, "WebSocket"</strong>);</code></li>
+  <li>Сохраните обработку.</li>
+  <li>Перезапустите 1С с новой обработкой.</li>
+  <li>Обновите мобильного клиента Моби-С до актуальной версии.</li>
+  <li>Пробуйте обмен. На КПК в логе обмена должна выводиться строка: <strong>Соединение с сервером sky.mobi-c.ru</strong></li>
+</ol>
+<h3><strong>Доработка поддержки новых файлов ключей</strong></h3>
+<p>В Моби-С начиная до даты релиза 2016.04.18 используется файл ключей "lickeys.txt" в кодировке Win-1251</p>
+<p>В Моби-С начиная с даты релиза 2016.04.19 используется файл ключей "lickeys_utf8.txt" в кодировке UTF-8</p>
+<p>1. <strong>МодульОбъекта</strong>, метод <strong>ОткрытьФайлOnLineКлючей</strong></p>
+<p>&nbsp;было</p>
+<p><code>&nbsp;&nbsp;&nbsp;ПутьКФайлуКлючей=КаталогЛогФайлов+"\lickeys.txt";</code></p>
+<p>стало</p>
+<p><code>&nbsp;&nbsp;&nbsp;ПутьКФайлуКлючей=КаталогЛогФайлов+"\lickeys_utf8.txt";</code></p>
+<p>&nbsp;</p>
+<p>было</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>ФайлКлючей.Прочитать(ПутьКФайлуКлючей);</code>&nbsp;&nbsp;</p>
+<p>стало</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>ФайлКлючей.Прочитать(ПутьКФайлуКлючей,&nbsp;КодировкаТекста.UTF8);&nbsp;</code>&nbsp;</p>
+<p>&nbsp;</p>
+<p>2. Форма Ключи</p>
+<p>2.1 удалить метод <strong>ОткрытьФайлOnLineКлючей</strong>, будет использоваться метод <strong>МодульОбъекта.ОткрытьФайлOnLineКлючей</strong></p>
+<p>2.2 метод <strong>СохранитьOnLineКлючи</strong></p>
+<p>новая версия библиотеки работает с файлом ключей в кодировке UTF-8, старая версия обработки работала в Win-1251</p>
+<p>&nbsp;было</p>
+<p><code>&nbsp;&nbsp;&nbsp;ПутьКФайлуКлючей=КаталогЛогФайлов+"\lickeys.txt";</code><br><code>&nbsp;&nbsp;&nbsp;зт&nbsp;=&nbsp;новый&nbsp;ЗаписьТекста(ПутьКФайлуКлючей,&nbsp;"windows-1251");</code></p>
+<p>стало</p>
+<p><code>&nbsp;&nbsp;&nbsp;ПутьКФайлуКлючей=КаталогЛогФайлов+"\lickeys_utf8.txt";</code><br><code>&nbsp;&nbsp;&nbsp;зт&nbsp;=&nbsp;новый&nbsp;ЗаписьТекста(ПутьКФайлуКлючей,&nbsp;КодировкаТекста.UTF8);</code></p>
+<p>&nbsp;</p>
+<p>3 форма <strong>ФормаОсновная</strong></p>
+<p>3.1 метод <strong>ПерезапускСервера</strong></p>
+<p>было</p>
+<p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ПутьКФайлуКлючей=КаталогЛогФайлов+"\lickeys.txt";</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ф=Новый&nbsp;Файл(ПутьКФайлуКлючей);</code></p>
+<p>стало</p>
+<p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ПутьКФайлуКлючей=КаталогЛогФайлов+"\lickeys_utf8.txt";</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ф=Новый&nbsp;Файл(ПутьКФайлуКлючей);</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Если&nbsp;не&nbsp;ф.Существует()&nbsp;Тогда</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;зт&nbsp;=&nbsp;новый&nbsp;ЗаписьТекста(ПутьКФайлуКлючей,&nbsp;КодировкаТекста.UTF8);</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;зт.Записать("#&nbsp;Редактирование&nbsp;этого&nbsp;файла&nbsp;вручную&nbsp;запрещено."&nbsp;+&nbsp;Символы.ПС);</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;зт.Закрыть();</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;КонецЕсли</code>;</p>
+<p>3.2 метод <strong>ПриОткрытии</strong></p>
+<p>добавляем автоматическое преобразование файла ключей lickeys &gt;&gt; lickeys_utf8 при первом запуске</p>
+<p>&nbsp;было</p>
+<p><code>&nbsp;&nbsp;&nbsp;Если&nbsp;НЕ&nbsp;РежимРабочееМесто&nbsp;Тогда</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Если&nbsp;НЕ&nbsp;АвтономныйРежим&nbsp;Тогда</code></p>
+<p>стало</p>
+<p><code>&nbsp;&nbsp;&nbsp;ПутьКФайлуКлючей&nbsp;=&nbsp;КаталогЛогФайлов&nbsp;+&nbsp;"\lickeys.txt";</code><br><code>&nbsp;&nbsp;&nbsp;ПутьКФайлуКлючейUTF8&nbsp;=&nbsp;КаталогЛогФайлов&nbsp;+&nbsp;"\lickeys_utf8.txt";</code><br><code>&nbsp;&nbsp;&nbsp;Ф&nbsp;=&nbsp;Новый&nbsp;Файл(ПутьКФайлуКлючей);</code><br><code>&nbsp;&nbsp;&nbsp;фUTF&nbsp;=&nbsp;Новый&nbsp;Файл(ПутьКФайлуКлючейUTF8);</code><br><code>&nbsp;&nbsp;&nbsp;Если&nbsp;фUTF.Существует()&nbsp;Тогда</code><br><code>&nbsp;&nbsp;&nbsp;//ничего&nbsp;не&nbsp;делаем,&nbsp;ключи&nbsp;не&nbsp;объединяем</code><br><code>&nbsp;&nbsp;&nbsp;Иначе&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Если&nbsp;ф.Существует()&nbsp;Тогда</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//преобразуем&nbsp;в&nbsp;utf-8&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;файлКлючей&nbsp;=&nbsp;Новый&nbsp;ТекстовыйДокумент();</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;файлКлючей.Прочитать(ПутьКФайлуКлючей);</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ФайлКлючей.Записать(ПутьКФайлуКлючейUTF8,&nbsp;КодировкаТекста.UTF8);&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Иначе&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ФайлКлючей&nbsp;=&nbsp;Новый&nbsp;ТекстовыйДокумент();</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ФайлКлючей.УстановитьТекст("#&nbsp;Редактирование&nbsp;этого&nbsp;файла&nbsp;вручную&nbsp;запрещено.");</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ФайлКлючей.Записать(ПутьКФайлуКлючейUTF8,&nbsp;КодировкаТекста.UTF8);</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;КонецЕсли;&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;КонецЕсли;</code><br><code>&nbsp;&nbsp;&nbsp;Если&nbsp;НЕ&nbsp;РежимРабочееМесто&nbsp;Тогда</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Если&nbsp;НЕ&nbsp;АвтономныйРежим&nbsp;Тогда</code></p>
+<p>было&nbsp;<code>ПутьКФайлуКлючей=КаталогЛогФайлов+"\lickeys.txt";</code></p>
+<p>стало&nbsp; <code>ПутьКФайлуКлючей=КаталогЛогФайлов+"\lickeys_utf8.txt"</code></p>
